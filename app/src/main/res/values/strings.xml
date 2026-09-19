@@ -21,8 +21,8 @@
     <string name="msg_creato_successo">✅ Creato con successo!</string>
     <string name="msg_cartella_selezionata">Cartella selezionata!</string>
     <string name="hint_ore">0</string>
-    <string name="totale_ore_default">Totale ore: 0,00</string>
-    <string name="straordinario_default">Straordinario: 0,00</string>
+    <string name="totale_ore_default">Totale ore: 0:00</string>
+    <string name="straordinario_default">Straordinario: 0:00</string>
 
     <string name="assistente_ia">ASSISTENTE VOCALE (IA)</string>
     <string name="prompt_voce">Dimmi cosa hai fatto oggi...</string>

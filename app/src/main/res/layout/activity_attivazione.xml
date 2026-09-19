@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/main_background">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generatore Codici"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/main_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <EditText
+        android:id="@+id/input_id_collega"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ID Dispositivo Collega"
+        android:inputType="text"
+        android:background="@android:drawable/editbox_background"
+        android:backgroundTint="@color/input_background"
+        android:textColor="@color/main_text"
+        android:textColorHint="@color/label_color"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:layout_marginTop="32dp"/>
+
+    <EditText
+        android:id="@+id/input_chiave_segreta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="La tua Parola Segreta"
+        android:inputType="textPassword"
+        android:background="@android:drawable/editbox_background"
+        android:backgroundTint="@color/input_background"
+        android:textColor="@color/main_text"
+        android:textColorHint="@color/label_color"
+        android:padding="12dp"
+        app:layout_constraintTop_toBottomOf="@id/input_id_collega"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/btn_genera_codice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GENERA CODICE"
+        android:layout_marginTop="16dp"
+        app:backgroundTint="#2E7D32"
+        app:layout_constraintTop_toBottomOf="@id/input_chiave_segreta"/>
+
+    <LinearLayout
+        android:id="@+id/result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/btn_genera_codice">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codice di Attivazione:"
+            android:textColor="@color/label_color"/>
+
+        <TextView
+            android:id="@+id/text_codice_generato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXXX-XXXX"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#FF9800"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/btn_copia_codice"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COPIA E INVIA"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_indietro"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INDIETRO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

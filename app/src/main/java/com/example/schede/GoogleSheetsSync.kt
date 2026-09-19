@@ -11,7 +11,7 @@ import java.io.IOException
 class GoogleSheetsSync {
 
     // URL fornito dopo la pubblicazione dello Script di Google
-    private val SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwa5cZnejXKZ_cV0CtyyXLiAUlIdiD9_U2NeSdmXH6K7WCBt8mkBLslY6flH1SXlbz5hA/exec"
+    private val scriptUrl = "https://script.google.com/macros/s/AKfycbwa5cZnejXKZ_cV0CtyyXLiAUlIdiD9_U2NeSdmXH6K7WCBt8mkBLslY6flH1SXlbz5hA/exec"
 
     private val client = OkHttpClient()
 
@@ -23,7 +23,7 @@ class GoogleSheetsSync {
                 is Number -> turno.toString()
                 else -> ""
             }
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             ""
         }
     }
@@ -41,7 +41,7 @@ class GoogleSheetsSync {
 
         val body = json.toString().toRequestBody("application/json; charset=utf-8".toMediaType())
         val request = Request.Builder()
-            .url(SCRIPT_URL)
+            .url(scriptUrl)
             .post(body)
             .build()
 
@@ -65,7 +65,7 @@ class GoogleSheetsSync {
     }
 
     fun readInterventi(onResult: (List<Intervento>?, String?) -> Unit) {
-        val url = "$SCRIPT_URL?action=read&t=${System.currentTimeMillis()}"
+        val url = "$scriptUrl?action=read&t=${System.currentTimeMillis()}"
         val request = Request.Builder()
             .url(url)
             .get()

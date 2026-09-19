@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.example.schede"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.schede"
         minSdk = 24
-        targetSdk = 33
-        versionCode = 2
-        versionName = "1.1"
+        targetSdk = 34
+        versionCode = 5
+        versionName = "1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,6 +22,7 @@ android {
     productFlavors {
         create("ilario") {
             dimension = "user"
+            isDefault = true
             applicationId = "com.example.schede.ilario"
             resValue("string", "app_name", "Schede Ilario")
             resValue("string", "user_name", "Zanetti Ilario")
@@ -31,6 +32,12 @@ android {
             applicationId = "com.example.schede.luca"
             resValue("string", "app_name", "Schede Luca")
             resValue("string", "user_name", "Garau Luca")
+        }
+        create("angelo") {
+            dimension = "user"
+            applicationId = "com.example.schede.angelo"
+            resValue("string", "app_name", "S")
+            resValue("string", "user_name", "Angelo Boi")
         }
     }
 
@@ -69,16 +76,16 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     
     // Splash Screen Library
     implementation("androidx.core:core-splashscreen:1.0.1")
     
     // Room Database
-    val roomVersion = "2.5.2"
+    val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")

@@ -8,21 +8,34 @@
     android:background="@color/main_background"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/birthday_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:drawable/toast_frame"
+        android:backgroundTint="#1976D2"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎂 AUGURI LUCA! 🥳"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/compila_scheda"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/main_text"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
+        app:layout_constraintTop_toBottomOf="@id/birthday_banner">
 
         <ImageButton
             android:id="@+id/btn_change_folder"
@@ -33,13 +46,27 @@
             android:src="@android:drawable/ic_menu_save"
             android:tint="@color/main_text"
             android:contentDescription="@string/cambia_cartella" />
+
+        <ImageButton
+            android:id="@+id/btn_open_generator"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@id/btn_change_folder"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_lock_lock"
+            android:tint="@color/main_text"
+            android:visibility="gone"
+            android:contentDescription="Generatore Codici" />
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/main_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="12dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/layout_buttons"
         app:layout_constraintTop_toBottomOf="@id/header">
 
@@ -106,6 +133,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/label_inserimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -135,20 +163,58 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
+                    android:layout_marginTop="16dp"
                     android:orientation="horizontal">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ore_label" android:textColor="@color/main_text"/>
+                    <TextView android:id="@+id/label_ore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ore_label"
+                        android:textColor="@color/main_text"/>
                     <EditText
                         android:id="@+id/input_ore"
                         android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:hint="0"
                         android:textColor="@color/main_text"
-                        android:inputType="numberDecimal"
+                        android:inputType="time"
+                        android:digits="0123456789:"
                         android:gravity="center" />
 
-                    <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+                    <TextView android:id="@+id/label_straordinario_angelo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ore Straordinario:"
+                        android:visibility="gone"
+                        android:textColor="@color/main_text"/>
+                    <EditText
+                        android:id="@+id/input_straordinario_angelo"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:hint="0"
+                        android:visibility="gone"
+                        android:textColor="@color/main_text"
+                        android:inputType="time"
+                        android:digits="0123456789:"
+                        android:gravity="center" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_straordinario_veloce"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+30 min"
+                        android:textSize="10sp"
+                        android:visibility="gone"
+                        tools:visibility="visible"
+                        app:backgroundTint="#673AB7" />
 
                     <Button
                         android:id="@+id/btn_clear_all"
@@ -173,15 +239,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="vertical"
-                android:gravity="end">
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_ore_restanti"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Restanti: 7:42"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32"
+                    android:gravity="start"/>
                 <TextView
                     android:id="@+id/text_ore_totali"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/totale_ore_default"
                     android:textStyle="bold"
-                    android:textColor="@color/main_text"/>
+                    android:textColor="@color/main_text"
+                    android:gravity="end"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end">
                 <TextView
                     android:id="@+id/text_straordinario"
                     android:layout_width="wrap_content"
@@ -211,11 +294,11 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/load_yesterday_button"
+            android:id="@+id/create_pdf_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="CARICA COME IERI"
+            android:text="@string/crea_pdf_button"
             app:backgroundTint="#FF9800" />
 
         <LinearLayout
@@ -234,13 +317,13 @@
                 android:textColor="@color/main_text" />
 
             <Button
-                android:id="@+id/create_pdf_button"
+                android:id="@+id/load_yesterday_button"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.2"
                 android:layout_marginEnd="4dp"
-                android:text="@string/crea_pdf_button"
+                android:text="CARICA COME IERI"
                 android:textColor="@color/main_text" />
 
             <Button

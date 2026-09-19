@@ -194,7 +194,11 @@ class DettaglioActivity : AppCompatActivity() {
             formData["str"] = if (intervento.straordinario > 0) String.format(Locale.ITALY, "%.2f", intervento.straordinario) else ""
 
             val dataNomeFile = dataCorretta.replace("/", "-")
-            val template = if (intervento.nome.contains("Ilario")) "templateiz.pdf" else "templatelg.pdf"
+            val template = when {
+                intervento.nome.contains("Ilario") -> "templateiz.pdf"
+                intervento.nome.contains("Angelo") -> "templateab.pdf"
+                else -> "templatelg.pdf"
+            }
 
             thread {
                 val uri = PdfStamper(context).fillPdfFromAssets(template, "${intervento.nome} $dataNomeFile.pdf", formData, folderUri, null)

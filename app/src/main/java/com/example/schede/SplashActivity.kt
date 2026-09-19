@@ -11,10 +11,14 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        // Mostra la foto per 2 secondi (2000ms) poi vai alla MainActivity
+        // Torna alla funzione originale: 2 secondi di splash e poi MainActivity per TUTTI
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            proceedToMain()
         }, 2000)
+    }
+
+    private fun proceedToMain() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 }
