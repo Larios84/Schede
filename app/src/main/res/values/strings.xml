@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">Schede</string>
+    <string name="user_name">Zanetti Ilario</string>
+    <string name="compila_scheda">Compila Scheda</string>
+    <string name="cambia_cartella">Cambia cartella</string>
+    <string name="reparto">REPARTO</string>
+    <string name="turno">TURNO</string>
+    <string name="nome">NOME</string>
+    <string name="hint_gg">GG</string>
+    <string name="hint_mm">MM</string>
+    <string name="hint_aaaa">AAAA</string>
+    <string name="inserimento_attivita">INSERIMENTO ATTIVITÀ</string>
+    <string name="hint_descrizione">Descrizione lavoro...</string>
+    <string name="ore_label">Ore: </string>
+    <string name="aggiungi_button">AGGIUNGI</string>
+    <string name="totale_ore_label">Totale ore: %s</string>
+    <string name="straordinario_label">Straordinario: %s</string>
+    <string name="storico_button">Storico</string>
+    <string name="crea_pdf_button">Crea PDF</string>
+    <string name="esci_button">Esci</string>
+    <string name="msg_creato_successo">✅ Creato con successo!</string>
+    <string name="msg_cartella_selezionata">Cartella selezionata!</string>
+    <string name="hint_ore">0</string>
+    <string name="totale_ore_default">Totale ore: 0,00</string>
+    <string name="straordinario_default">Straordinario: 0,00</string>
+
+    <string name="assistente_ia">ASSISTENTE VOCALE (IA)</string>
+    <string name="prompt_voce">Dimmi cosa hai fatto oggi...</string>
+    <string name="errore_ia">Errore durante l\'analisi. Riprova.</string>
+    <string name="analisi_in_corso">Analisi in corso...</string>
 </resources>

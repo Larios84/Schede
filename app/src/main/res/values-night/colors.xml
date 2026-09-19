@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="main_background">#121212</color>
+    <color name="main_text">#FFFFFF</color>
+    <color name="input_background">#2C2C2C</color>
+    <color name="label_color">#BBBBBB</color>
+</resources>

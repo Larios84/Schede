@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore Schede Intervento V3</title>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #e0e0e0; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); width: 100%; max-width: 600px; }
+        h2 { text-align: center; color: #1b5e20; margin-top: 0; }
+        .row { display: flex; gap: 15px; margin-bottom: 15px; }
+        .field { flex: 1; display: flex; flex-direction: column; }
+        label { font-size: 13px; font-weight: bold; margin-bottom: 5px; color: #444; }
+        select, input, textarea { padding: 12px; border: 1px solid #bbb; border-radius: 6px; font-size: 15px; outline: none; }
+        .activity-box { border: 2px solid #2e7d32; padding: 15px; border-radius: 8px; margin-top: 20px; background: #f1f8e9; }
+        button { padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-add { background: #2e7d32; color: white; width: 100%; margin-top: 10px; }
+        .btn-pdf { background: #1976d2; color: white; width: 100%; margin-top: 25px; font-size: 18px; height: 50px; }
+        .btn-storico { background: #6c757d; color: white; width: 100%; margin-top: 10px; }
+        .list-item { background: #fff; padding: 12px; border: 1px solid #ddd; margin-top: 8px; display: flex; justify-content: space-between; border-radius: 6px; cursor: pointer; }
+        .totals { text-align: right; margin-top: 15px; font-size: 18px; border-top: 2px solid #eee; padding-top: 10px; }
+        #storico-container { display: none; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #2e7d32; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr.clickable-row { cursor: pointer; }
+        tr.clickable-row:hover { background-color: #e8f5e9 !important; }
+        .loading-text { font-style: italic; color: #888; font-size: 12px; }
+        .btn-rigenera { background: #ff9800; color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Scheda Intervento Web V3</h2>
+
+    <div class="row">
+        <div class="field">
+            <label>OPERATORE</label>
+            <select id="nome">
+                <option value="Zanetti Ilario">Zanetti Ilario</option>
+                <option value="Garau Luca">Garau Luca</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>DATA</label>
+            <input type="date" id="data">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="field">
+            <label>REPARTO</label>
+            <select id="reparto">
+                <option value="AVL">AVL</option>
+                <option value="BHS">BHS</option>
+                <option value="TEC">IMP.TECNOLOGICI</option>
+                <option value="ELETTR">IMP.ELETTRICI</option>
+                <option value="SPEC">IMP.SPECIALI</option>
+                <option value="GEN">MAN.GEN</option>
+                <option value="STP">STP VERDE</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>TURNO</label>
+            <select id="turno">
+                <option>5.48</option><option>6</option><option>7</option><option>13</option><option>14</option><option>22</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="activity-box">
+        <label>NUOVA ATTIVITÀ</label>
+        <textarea id="desc" placeholder="Descrizione del lavoro..." rows="2"></textarea>
+        <div class="row" style="margin-top:10px; margin-bottom:0">
+            <div class="field"><input type="number" id="ore" placeholder="Ore" step="0.1"></div>
+            <div style="flex:1"><button class="btn-add" onclick="aggiungiAttivita()">AGGIUNGI</button></div>
+        </div>
+    </div>
+
+    <div id="listaAttivita"></div>
+
+    <div class="totals">
+        <div>Totale ore: <span id="totale">0,00</span></div>
+    </div>
+
+    <button class="btn-pdf" onclick="generaPDF()">GENERA PDF E SALVA</button>
+    <button class="btn-storico" id="btnToggleStorico" onclick="toggleStorico()">MOSTRA STORICO GOOGLE</button>
+    <div id="status-caricamento" class="loading-text"></div>
+
+    <div id="storico-container">
+        <h3>Storico Interventi (Google Sheets)</h3>
+        <table id="storico-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Nome</th>
+                    <th>Reparto</th>
+                    <th>Turno</th>
+                    <th>Ore</th>
+                    <th>Azione</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // NOTA: Incolla qui sotto il template PDF in formato base64
+    // Puoi usare il file templateiz.js per importarlo
+    const template_iz_b64 = ""; // Inserire qui il base64 del template PDF
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwa5cZnejXKZ_cV0CtyyXLiAUlIdiD9_U2NeSdmXH6K7WCBt8mkBLslY6flH1SXlbz5hA/exec";
+    let attivita = [];
+
+    document.getElementById('data').valueAsDate = new Date();
+
+    function aggiungiAttivita() {
+        const desc = document.getElementById('desc').value.trim();
+        const ore = parseFloat(document.getElementById('ore').value) || 0;
+        if (!desc) return alert("Inserisci una descrizione!");
+        if (ore <= 0) return alert("Inserisci un numero di ore valido!");
+        attivita.push({ desc, ore });
+        document.getElementById('desc').value = '';
+        document.getElementById('ore').value = '';
+        renderLista();
+    }
+
+    function renderLista() {
+        const lista = document.getElementById('listaAttivita');
+        let html = '';
+        let tot = 0;
+        attivita.forEach((a, i) => {
+            tot += a.ore;
+            const oreStr = a.ore.toFixed(2).replace('.', ',');
+            html += `<div class="list-item" onclick="rimuovi(${i})">${a.desc} - ${oreStr}h</div>`;
+        });
+        lista.innerHTML = html;
+        document.getElementById('totale').innerText = tot.toFixed(2).replace('.', ',');
+    }
+
+    function rimuovi(i) {
+        attivita.splice(i, 1);
+        renderLista();
+    }
+
+    function toggleStorico() {
+        const container = document.getElementById('storico-container');
+        const btn = document.getElementById('btnToggleStorico');
+        if (container.style.display === 'none' || container.style.display === '') {
+            container.style.display = 'block';
+            btn.innerText = "NASCONDI STORICO";
+            aggiornaDatiGoogle();
+        } else {
+            container.style.display = 'none';
+            btn.innerText = "MOSTRA STORICO GOOGLE";
+        }
+    }
+
+    async function generaPDF(datiPerRigenerazione = null) {
+        let dati;
+        if (datiPerRigenerazione) {
+            dati = datiPerRigenerazione;
+        } else {
+            if (attivita.length === 0) return alert("Inserisci almeno un'attività!");
+            const nome = document.getElementById('nome').value;
+            const dataInput = document.getElementById('data').value;
+            if(!dataInput) return alert("Seleziona una data!");
+            const dataStr = dataInput.split('-').reverse().join('/');
+            let totOre = 0;
+            attivita.forEach(a => totOre += a.ore);
+            const str = totOre > 7.5 ? totOre - 7.5 : 0;
+            dati = {
+                nome: nome,
+                data: dataStr,
+                reparto: document.getElementById('reparto').value,
+                turno: document.getElementById('turno').value,
+                oreTotali: totOre,
+                straordinario: str,
+                attivita: JSON.stringify(attivita.map(a => ({ first: a.desc, second: a.ore.toString() })))
+            };
+        }
+
+        try {
+            const { PDFDocument } = PDFLib;
+            const templateB64 = template_iz_b64;
+            if (!templateB64) {
+                alert("Template PDF non configurato. Inserire il base64 nella variabile template_iz_b64");
+                return;
+            }
+            const pdfDoc = await PDFDocument.load(templateB64);
+            const form = pdfDoc.getForm();
+            const mapReparto = { "AVL": "avl", "BHS": "bhs", "TEC": "tec", "ELETTR": "elettr", "SPEC": "spec", "GEN": "gen", "STP": "stp" };
+            Object.keys(mapReparto).forEach(k => {
+                try { form.getTextField(mapReparto[k]).setText(k === dati.reparto ? "Yes" : "Off"); } catch(e){}
+            });
+            try { form.getTextField('nome').setText(dati.nome); } catch(e){}
+            try { form.getTextField('data').setText(dati.data); } catch(e){}
+            try { form.getTextField('turno').setText(dati.turno); } catch(e){}
+            try { form.getTextField('tot').setText(dati.oreTotali.toFixed(2).replace('.', ',')); } catch(e){}
+            try { form.getTextField('str').setText(dati.straordinario > 0 ? dati.straordinario.toFixed(2).replace('.', ',') : ""); } catch(e){}
+            const attList = JSON.parse(dati.attivita);
+            attList.forEach((a, i) => {
+                if (i < 8) {
+                    const rowNum = i + 1;
+                    const fieldName = rowNum === 2 ? "att2_2" : (rowNum === 8 ? "att2" : "att" + rowNum);
+                    try { form.getTextField(fieldName).setText(a.first); } catch(e){}
+                    try { form.getTextField("ore" + rowNum).setText(a.second.replace('.', ',')); } catch(e){}
+                }
+            });
+            form.flatten();
+            const pdfBytes = await pdfDoc.save();
+            const blob = new Blob([pdfBytes], { type: "application/pdf" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            const fileName = `${dati.nome} ${dati.data.replace(/\//g, '-')}.pdf`;
+            link.download = fileName;
+            link.click();
+            if (!datiPerRigenerazione) {
+                await salvaSuGoogle(dati);
+                alert("PDF Creato e salvato su Google!");
+                attivita = [];
+                renderLista();
+                setTimeout(aggiornaDatiGoogle, 3000);
+            } else {
+                alert("PDF Rigenerato con successo!");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Errore generazione PDF: " + error.message);
+        }
+    }
+
+    async function salvaSuGoogle(dati) {
+        const response = await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dati)
+        });
+    }
+
+    function caricaIntervento(row) {
+        if (!confirm("Caricare i dati di questo intervento nel modulo?")) return;
+        if (row.nome) document.getElementById('nome').value = row.nome;
+        if (row.reparto) document.getElementById('reparto').value = row.reparto;
+        let turnoVal = row.turno || "";
+        if (turnoVal.toString().includes('T')) {
+            const d = new Date(turnoVal);
+            turnoVal = d.toLocaleTimeString('it-IT', { hour: 'numeric', minute: '2-digit', hour12: false }).replace(':', '.');
+        }
+        if (turnoVal.endsWith('.00')) turnoVal = turnoVal.split('.')[0];
+        document.getElementById('turno').value = turnoVal;
+        let d = row.data;
+        if (typeof d === 'string' && d.includes('/')) {
+            const parts = d.split('/');
+            if (parts.length === 3) {
+                document.getElementById('data').value = `${parts[2]}-${parts[1].padStart(2, '0')}-${parts[0].padStart(2, '0')}`;
+            }
+        } else if (d) {
+            const dateObj = new Date(d);
+            if (!isNaN(dateObj)) {
+                document.getElementById('data').value = dateObj.toISOString().split('T')[0];
+            }
+        }
+        if (row.attivita) {
+            try {
+                const rawAtt = JSON.parse(row.attivita);
+                attivita = rawAtt.map(a => ({
+                    desc: a.first || a.desc,
+                    ore: parseFloat(a.second ? a.second.replace(',', '.') : a.ore)
+                }));
+                renderLista();
+            } catch (e) {
+                console.error("Errore nel caricamento delle attività:", e);
+            }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function aggiornaDatiGoogle() {
+        const status = document.getElementById('status-caricamento');
+        status.innerText = "Sincronizzazione in corso...";
+        const url = `${SCRIPT_URL}?action=read&t=${new Date().getTime()}`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Errore rete: " + response.status);
+            let result = await response.json();
+            let data = Array.isArray(result) ? result : (result.data || result.rows);
+            if (data && Array.isArray(data)) {
+                data.reverse();
+                const tbody = document.querySelector('#storico-table tbody');
+                tbody.innerHTML = '';
+                data.forEach(function(row) {
+                    if (!row || !row.data) return;
+                    let dataDisp = row.data.toString();
+                    if (dataDisp.includes('T')) dataDisp = new Date(dataDisp).toLocaleDateString('it-IT');
+                    let turnoDisp = row.turno || "";
+                    if (turnoDisp.toString().includes('T')) {
+                        turnoDisp = new Date(turnoDisp).toLocaleTimeString('it-IT', { hour: 'numeric', minute: '2-digit', hour12: false }).replace(':', '.');
+                    }
+                    const oreDisp = row.oreTotali || row.ore_totali || row.ore || "0";
+                    const tr = document.createElement('tr');
+                    tr.className = 'clickable-row';
+                    const tdData = document.createElement('td');
+                    tdData.innerText = dataDisp;
+                    tdData.onclick = () => caricaIntervento(row);
+                    const tdNome = document.createElement('td');
+                    tdNome.innerText = row.nome || "-";
+                    tdNome.onclick = () => caricaIntervento(row);
+                    const tdReparto = document.createElement('td');
+                    tdReparto.innerText = row.reparto || "-";
+                    tdReparto.onclick = () => caricaIntervento(row);
+                    const tdTurno = document.createElement('td');
+                    tdTurno.innerText = turnoDisp;
+                    tdTurno.onclick = () => caricaIntervento(row);
+                    const tdOre = document.createElement('td');
+                    tdOre.innerText = oreDisp + "h";
+                    tdOre.onclick = () => caricaIntervento(row);
+                    const tdAzione = document.createElement('td');
+                    const btnRigenera = document.createElement('button');
+                    btnRigenera.className = 'btn-rigenera';
+                    btnRigenera.innerText = 'PDF';
+                    btnRigenera.onclick = (e) => {
+                        e.stopPropagation();
+                        const datiRig = {
+                            nome: row.nome,
+                            data: dataDisp,
+                            reparto: row.reparto,
+                            turno: turnoDisp,
+                            oreTotali: parseFloat(oreDisp),
+                            straordinario: parseFloat(row.straordinario || 0),
+                            attivita: row.attivita
+                        };
+                        generaPDF(datiRig);
+                    };
+                    tdAzione.appendChild(btnRigenera);
+                    tr.appendChild(tdData);
+                    tr.appendChild(tdNome);
+                    tr.appendChild(tdReparto);
+                    tr.appendChild(tdTurno);
+                    tr.appendChild(tdOre);
+                    tr.appendChild(tdAzione);
+                    tbody.appendChild(tr);
+                });
+                status.innerText = data.length > 0 ? "Dati aggiornati." : "Nessun dato trovato.";
+            } else {
+                status.innerText = "Formato dati non valido.";
+            }
+        } catch (error) {
+            console.error("Errore sincronizzazione:", error);
+            status.innerText = "Errore sincronizzazione (Vedi console).";
+        }
+    }
+</script>
+</body>
+</html>

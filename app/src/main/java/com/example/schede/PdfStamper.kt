@@ -1,71 +1,101 @@
 package com.example.schede
 
-import android.content.ContentValues
 import android.content.Context
+import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
-import android.os.Environment
-import android.provider.MediaStore
 import android.util.Log
+import androidx.documentfile.provider.DocumentFile
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader
 import com.tom_roush.pdfbox.pdmodel.PDDocument
+import com.tom_roush.pdfbox.pdmodel.PDPageContentStream
+import com.tom_roush.pdfbox.pdmodel.graphics.image.LosslessFactory
 import com.tom_roush.pdfbox.pdmodel.interactive.form.PDAcroForm
-import java.io.File
 import java.io.IOException
 
 class PdfStamper(private val context: Context) {
 
     init {
-        PDFBoxResourceLoader.init(context)
+        try {
+            PDFBoxResourceLoader.init(context)
+        } catch (e: Exception) {
+            Log.e("PdfStamper", "Errore inizializzazione PDFBox: ${e.message}")
+        }
     }
 
     @Throws(IOException::class)
-    fun fillPdfFromAssets(assetName: String, outputName: String, fields: Map<String, String>): Uri? {
-        val document = PDDocument.load(context.assets.open(assetName))
-        val acroForm: PDAcroForm? = document.documentCatalog.acroForm
+    fun fillPdfFromAssets(
+        assetName: String, 
+        outputName: String, 
+        fields: Map<String, String>, 
+        treeUri: Uri?,
+        signature: Bitmap? = null
+    ): Uri? {
+        var document: PDDocument? = null
+        try {
+            val finalFileName = if (outputName.endsWith(".pdf")) outputName else "$outputName.pdf"
+            val inputStream = context.assets.open(assetName)
+            document = PDDocument.load(inputStream)
+            
+            val acroForm: PDAcroForm = document.documentCatalog.acroForm ?: return null
 
-        acroForm?.let { form ->
-            // Impostiamo NeedAppearances a false per evitare che il lettore PDF sovrascriva lo stile
-            form.setNeedAppearances(false)
+            // DEBUG: Ispezione nomi campi reali nel PDF
+            Log.d("ISPEZIONE_PDF", "--- INIZIO ELENCO CAMPI NEL TEMPLATE: $assetName ---")
+            acroForm.fields.forEach { field ->
+                Log.d("ISPEZIONE_PDF", "Nome campo: ${field.fullyQualifiedName}")
+            }
+            Log.d("ISPEZIONE_PDF", "--- FINE ELENCO CAMPI ---")
 
-            fields.forEach { (fieldName, value) ->
-                val field = form.getField(fieldName)
-                if (field != null) {
-                    field.setValue(value)
-                    Log.d("PdfStamper", "Compilato campo: $fieldName")
+            // 1. Inserimento valori
+            fields.forEach { (key, value) ->
+                try {
+                    acroForm.getField(key)?.setValue(value)
+                } catch (e: Exception) {
+                    Log.e("PdfStamper", "Errore campo $key: ${e.message}")
+                }
+            }
+
+            // 2. Refresh grafico
+            try { acroForm.refreshAppearances() } catch (e: Exception) {}
+            
+            // 3. Firma
+            if (signature != null) {
+                try {
+                    val pdImage = LosslessFactory.createFromImage(document, signature)
+                    val page = document.getPage(0)
+                    PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true).use { contentStream ->
+                        contentStream.drawImage(pdImage, 420f, 60f, 130f, 40f)
+                    }
+                } catch (e: Exception) {
+                    Log.e("PdfStamper", "Errore firma: ${e.message}")
+                }
+            }
+
+            // 4. Appiattimento
+            try { acroForm.flatten() } catch (e: Exception) {}
+
+            // 5. Salvataggio
+            if (treeUri != null) {
+                val pickedDir = DocumentFile.fromTreeUri(context, treeUri)
+                val newFile = pickedDir?.createFile("application/pdf", finalFileName)
+                newFile?.uri?.let { uri ->
+                    context.contentResolver.openOutputStream(uri)?.use { out ->
+                        document.save(out)
+                    }
+                    return uri
                 }
             }
             
-            // "Appiattisce" il modulo: i campi diventano testo/grafica fissa
-            // e lo sfondo azzurro di selezione scompare.
-            form.flatten() 
-        }
+            return null
 
-        var resultUri: Uri? = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            val resolver = context.contentResolver
-            val contentValues = ContentValues().apply {
-                put(MediaStore.MediaColumns.DISPLAY_NAME, outputName)
-                put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf")
-                put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOCUMENTS)
+        } catch (e: Exception) {
+            Log.e("PdfStamper", "Errore generazione PDF: ${e.message}")
+            return null
+        } finally {
+            try {
+                document?.close()
+            } catch (e: Exception) {
+                Log.e("PdfStamper", "Errore chiusura documento: ${e.message}")
             }
-            val uri = resolver.insert(MediaStore.Files.getContentUri("external"), contentValues)
-            uri?.let {
-                resolver.openOutputStream(it)?.use { outputStream ->
-                    document.save(outputStream)
-                }
-                resultUri = it
-            }
-        } else {
-            @Suppress("DEPRECATION")
-            val documentsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
-            documentsDir.mkdirs()
-            val outputFile = File(documentsDir, outputName)
-            document.save(outputFile)
-            resultUri = Uri.fromFile(outputFile)
         }
-
-        document.close()
-        return resultUri
     }
 }
