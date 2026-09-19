@@ -193,7 +193,14 @@ class DettaglioActivity : AppCompatActivity() {
             formData["tot"] = String.format(Locale.ITALY, "%.2f", intervento.oreTotali)
             formData["str"] = if (intervento.straordinario > 0) String.format(Locale.ITALY, "%.2f", intervento.straordinario) else ""
 
-            val dataNomeFile = dataCorretta.replace("/", "-")
+            val dataParts = dataCorretta.split("/")
+            val dataISO = if (dataParts.size == 3) {
+                val giorno = dataParts[0].padStart(2, '0')
+                val mese = dataParts[1].padStart(2, '0')
+                val anno = if (dataParts[2].length == 2) "20" + dataParts[2] else dataParts[2]
+                "$anno$mese$giorno"
+            } else dataCorretta.replace("/", "")
+
             val template = when {
                 intervento.nome.contains("Ilario") -> "templateiz.pdf"
                 intervento.nome.contains("Angelo") -> "templateab.pdf"
@@ -201,7 +208,7 @@ class DettaglioActivity : AppCompatActivity() {
             }
 
             thread {
-                val uri = PdfStamper(context).fillPdfFromAssets(template, "${intervento.nome} $dataNomeFile.pdf", formData, folderUri, null)
+                val uri = PdfStamper(context).fillPdfFromAssets(template, "$dataISO ${intervento.nome}.pdf", formData, folderUri, null)
                 runOnUiThread { 
                     if (uri != null) {
                         Toast.makeText(context, "✅ PDF Rigenerato correttamente!", Toast.LENGTH_SHORT).show()

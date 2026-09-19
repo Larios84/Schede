@@ -436,8 +436,15 @@ class MainActivity : AppCompatActivity() {
         formData["tot"] = String.format(Locale.ITALY, "%.2f", oreTotali).replace(',', ':')
         formData["str"] = if (str > 0.0) String.format(Locale.ITALY, "%.2f", str).replace(',', ':') else ""
 
-        val dataShort = data.replace("/", "-").let { it.substring(0, 6) + it.takeLast(2) }
-        val nomeFile = "$nome $dataShort.pdf"
+        val dataParts = data.split("/")
+        val dataISO = if (dataParts.size == 3) {
+            val giorno = dataParts[0].padStart(2, '0')
+            val mese = dataParts[1].padStart(2, '0')
+            val anno = if (dataParts[2].length == 2) "20" + dataParts[2] else dataParts[2]
+            "$anno$mese$giorno"
+        } else data.replace("/", "")
+
+        val nomeFile = "$dataISO $nome.pdf"
         val assetTemplate = when (nome) {
             "Zanetti Ilario" -> "templateiz.pdf"
             "Angelo Boi" -> "templateab.pdf"
