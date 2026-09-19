@@ -40,6 +40,8 @@
         <activity android:name=".RepartiActivity" />
         <activity android:name=".SchedeAvlActivity" />
         <activity android:name=".UrccActivity" />
+        <activity android:name=".DailyAvlActivity" />
+        <activity android:name=".Md121Activity" />
 
     </application>
 

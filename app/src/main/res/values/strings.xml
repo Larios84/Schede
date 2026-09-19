@@ -28,4 +28,15 @@
     <string name="prompt_voce">Dimmi cosa hai fatto oggi...</string>
     <string name="errore_ia">Errore durante l\'analisi. Riprova.</string>
     <string name="analisi_in_corso">Analisi in corso...</string>
+
+    <!-- Daily Cabina AVL -->
+    <string name="title_daily_avl">Verifica Giornaliera Cabina AVL</string>
+    <string name="btn_daily_avl">Verifica giornaliera cabina</string>
+    <string name="label_stato_c">C</string>
+    <string name="label_stato_nc">N.C.</string>
+    <string name="label_stato_na">N.A.</string>
+    <string name="hint_note_riga">Note attività...</string>
+    <string name="label_note_generali">Note Generali:</string>
+    <string name="btn_salva_daily">SALVA VERIFICA</string>
+    <string name="msg_errore_pdf">Errore nella generazione del PDF</string>
 </resources>

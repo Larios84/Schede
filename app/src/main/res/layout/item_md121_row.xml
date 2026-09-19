@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@android:drawable/dialog_holo_light_frame">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_marginBottom="4dp">
+
+        <TextView
+            android:id="@+id/txt_unit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PAPI 1"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/purple_500"/>
+
+        <TextView
+            android:id="@+id/txt_angolo_nominale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" (2° 25')"
+            android:textSize="14sp"
+            android:textColor="#666"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <!-- Attività 01 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="01" android:textSize="10sp"/>
+            <Button
+                android:id="@+id/btn_c_01"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="C"
+                android:textSize="12sp"
+                android:padding="0dp"
+                style="?android:attr/buttonStyleSmall"/>
+        </LinearLayout>
+
+        <!-- Attività 02 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="02" android:textSize="10sp"/>
+            <Button
+                android:id="@+id/btn_c_02"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="C"
+                android:textSize="12sp"
+                android:padding="0dp"
+                style="?android:attr/buttonStyleSmall"/>
+        </LinearLayout>
+
+        <!-- Attività 03 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="03" android:textSize="10sp"/>
+            <Button
+                android:id="@+id/btn_c_03"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="C"
+                android:textSize="12sp"
+                android:padding="0dp"
+                style="?android:attr/buttonStyleSmall"/>
+        </LinearLayout>
+
+        <!-- Attività 04 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="04" android:textSize="10sp"/>
+            <Button
+                android:id="@+id/btn_c_04"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="C"
+                android:textSize="12sp"
+                android:padding="0dp"
+                style="?android:attr/buttonStyleSmall"/>
+        </LinearLayout>
+
+        <!-- Attività 05 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="05" android:textSize="10sp"/>
+            <Button
+                android:id="@+id/btn_c_05"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="C"
+                android:textSize="12sp"
+                android:padding="0dp"
+                style="?android:attr/buttonStyleSmall"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

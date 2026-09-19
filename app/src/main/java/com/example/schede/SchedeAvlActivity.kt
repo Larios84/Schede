@@ -35,7 +35,15 @@ class SchedeAvlActivity : AppCompatActivity() {
         })
 
         // Lista schede per AVL
-        val schede = listOf("URCC settimanale")
+        val schede = mutableListOf("URCC settimanale", "Verifica giornaliera cabina")
+        val resId = resources.getIdentifier("md121_template_name", "string", packageName)
+        if (resId != 0) {
+            try {
+                if (getString(resId).isNotEmpty()) {
+                    schede.add("PAPI settimanale")
+                }
+            } catch (_: Exception) {}
+        }
 
         schede.forEach { nomeScheda ->
             val btn = Button(this).apply {
@@ -49,11 +57,22 @@ class SchedeAvlActivity : AppCompatActivity() {
                 setTextColor(android.graphics.Color.WHITE)
                 setBackgroundColor(accentColor)
                 setOnClickListener {
-                    if (nomeScheda == "URCC settimanale") {
-                        val intent = Intent(this@SchedeAvlActivity, UrccActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        Toast.makeText(this@SchedeAvlActivity, "Apertura $nomeScheda...", Toast.LENGTH_SHORT).show()
+                    when (nomeScheda) {
+                        "URCC settimanale" -> {
+                            val intent = Intent(this@SchedeAvlActivity, UrccActivity::class.java)
+                            startActivity(intent)
+                        }
+                        "Verifica giornaliera cabina" -> {
+                            val intent = Intent(this@SchedeAvlActivity, DailyAvlActivity::class.java)
+                            startActivity(intent)
+                        }
+                        "PAPI settimanale" -> {
+                            val intent = Intent(this@SchedeAvlActivity, Md121Activity::class.java)
+                            startActivity(intent)
+                        }
+                        else -> {
+                            Toast.makeText(this@SchedeAvlActivity, "Apertura $nomeScheda...", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }

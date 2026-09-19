@@ -27,6 +27,8 @@ android {
             resValue("string", "app_name", "Schede Ilario")
             resValue("string", "user_name", "Zanetti Ilario")
             resValue("string", "template_name", "template_ilario.pdf")
+            resValue("string", "md46_template_name", "template_md46_iz.pdf")
+            resValue("string", "md121_template_name", "MD-121 Scheda verifica periodica PAPI pista principale IZ.pdf")
         }
         create("luca") {
             dimension = "user"
@@ -36,6 +38,8 @@ android {
             resValue("string", "app_name", "Schede Luca")
             resValue("string", "user_name", "Garau Luca")
             resValue("string", "template_name", "template_luca.pdf")
+            resValue("string", "md46_template_name", "template_md46_iz.pdf")
+            resValue("string", "md121_template_name", "MD-121 Scheda verifica periodica PAPI pista principale LG.pdf")
         }
         create("angelo") {
             dimension = "user"
@@ -43,14 +47,16 @@ android {
             resValue("string", "app_name", "Schede Angelo")
             resValue("string", "user_name", "Angelo Boi")
             resValue("string", "template_name", "template_angelo.pdf")
+            resValue("string", "md46_template_name", "template_md46_iz.pdf")
         }
         create("beta") {
             dimension = "user"
             applicationId = "com.example.schede.beta"
             versionNameSuffix = "-beta"
             resValue("string", "app_name", "Schede BETA")
-            resValue("string", "user_name", "Utente Beta")
+            resValue("string", "user_name", "Zanetti Ilario")
             resValue("string", "template_name", "template_ilario.pdf")
+            resValue("string", "md46_template_name", "template_md46_iz.pdf")
         }
     }
 

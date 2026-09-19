@@ -1,0 +1,1055 @@
+---
+FieldType: Text
+FieldName: Angolo nominale di pendenza di avvicinamento 3 00 Altezza minima occhi pilota  soglia H min 16 m  ILS.0
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: Angolo nominale di pendenza di avvicinamento 3 00 Altezza minima occhi pilota  soglia H min 16 m  ILS.1
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: 
+FieldName: Angolo nominale di pendenza di avvicinamento 3 00 Altezza minima occhi pilota  soglia H min 16 m  ILS
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: undefined.0
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: Text
+FieldName: undefined.1
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 2
+---
+FieldType: 
+FieldName: undefined
+FieldFlags: 0
+FieldJustification: Left
+---
+FieldType: Text
+FieldName: undefined_2
+FieldFlags: 8388608
+FieldValue: 2026
+FieldValueDefault: 2026
+FieldJustification: Left
+FieldMaxLength: 4
+---
+FieldType: Text
+FieldName: Responsabile verifica
+FieldFlags: 8388608
+FieldJustification: Center
+---
+FieldType: Text
+FieldName: 1.0.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.0.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.1.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.1.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.2.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.2.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.3.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.3.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.4.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.4.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.5.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.5.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.6.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.6.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.7.0
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Text
+FieldName: 1.7.1
+FieldNameAlt: 2&#176; 25
+FieldFlags: 8388608
+FieldJustification: Center
+FieldMaxLength: 5
+---
+FieldType: Button
+FieldName: Check Box7.0.0.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.0.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.0.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.0.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.1.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.1.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.1.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.1.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.2.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.2.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.2.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.2.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.3.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.3.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.3.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.3.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.4.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.4.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.4.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.4.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.5.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.5.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.5.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.5.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.6.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.6.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.6.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.6.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.7.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.7.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.7.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.0.7.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.0.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.0.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.0.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.0.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.1.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.1.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.1.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.1.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.2.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.2.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.2.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.2.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.3.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.3.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.3.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.3.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.4.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.4.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.4.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.4.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.5.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.5.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.5.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.5.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.6.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.6.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.6.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.6.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.7.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.7.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.7.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.1.7.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.0.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.0.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.0.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.0.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.1.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.1.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.1.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.1.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.2.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.2.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.2.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.2.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.3.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.3.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.3.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.3.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.4.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.4.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.4.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.4.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.5.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.5.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.5.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.5.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.6.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.6.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.6.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.6.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.7.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.7.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.7.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.2.7.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.0.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.0.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.0.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.0.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.1.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.1.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.1.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.1.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.2.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.2.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.2.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.2.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.3.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.3.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.3.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.3.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.4.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.4.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.4.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.4.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.5.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.5.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.5.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.5.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.6.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.6.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.6.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.6.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.7.0.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.7.0.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.7.1.0
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off
+---
+FieldType: Button
+FieldName: Check Box7.3.7.1.1
+FieldFlags: 0
+FieldJustification: Left
+FieldStateOption: S&#236;
+FieldStateOption: Off

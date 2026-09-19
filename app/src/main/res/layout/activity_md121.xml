@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/main_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MD-121 PAPI Settimanale"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/main_text"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Intestazione dati -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <EditText
+                android:id="@+id/edit_data_papi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Data (GG/MM/AAAA)"
+                android:inputType="date"
+                android:textColor="@color/main_text"
+                android:textColorHint="#888"/>
+            <EditText
+                android:id="@+id/edit_ora_papi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Ora (HH:MM)"
+                android:inputType="time"
+                android:textColor="@color/main_text"
+                android:textColorHint="#888"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edit_responsabile_papi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Responsabile Verifica"
+            android:textColor="@color/main_text"
+            android:textColorHint="#888"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- SELEZIONE TESTATA (14 o 32) E LATO (SINISTRO o DESTRO) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <RadioGroup
+                android:id="@+id/rg_testata"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@android:drawable/btn_default"
+                android:padding="2dp">
+                <RadioButton
+                    android:id="@+id/rb_t14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="14"
+                    android:textSize="12sp"
+                    android:checked="true"/>
+                <RadioButton
+                    android:id="@+id/rb_t32"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="32"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg_lato"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:background="@android:drawable/btn_default"
+                android:padding="2dp"
+                android:layout_marginStart="6dp">
+                <RadioButton
+                    android:id="@+id/rb_lato_sx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="MIL"
+                    android:textSize="12sp"
+                    android:checked="true"/>
+                <RadioButton
+                    android:id="@+id/rb_lato_dx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="CIV"
+                    android:textSize="12sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- AREA CONTENITORE DINAMICA: LUCI + PISTA MOBILE -->
+        <LinearLayout
+            android:id="@+id/layout_griglia_dinamica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:padding="6dp">
+
+            <!-- Le 4 colonne delle unità (occuperanno peso 4) -->
+            <LinearLayout
+                android:id="@+id/container_quattro_colonne"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="horizontal"
+                android:weightSum="4">
+                <LinearLayout android:id="@+id/col_papi_1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center"/>
+                <LinearLayout android:id="@+id/col_papi_2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center"/>
+                <LinearLayout android:id="@+id/col_papi_3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center"/>
+                <LinearLayout android:id="@+id/col_papi_4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- La Pista Mobile (occuperà peso 1) -->
+            <LinearLayout
+                android:id="@+id/container_pista_mobile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="#444444"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <View android:layout_width="4dp" android:layout_height="25dp" android:background="#FFFFFF" android:layout_marginBottom="8dp"/>
+                <TextView android:id="@+id/txt_pista_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="14" android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="14sp"/>
+                <View android:layout_width="4dp" android:layout_height="25dp" android:background="#FFFFFF" android:layout_marginTop="8dp"/>
+
+                <!-- Icona aereo stilizzata ruotata per essere nel verso della pista (verso l'alto) -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✈"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:rotation="-90"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Pulsante di Generazione Finale -->
+        <Button
+            android:id="@+id/btn_generate_md121"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="GENERA PDF MD-121"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+</ScrollView>
