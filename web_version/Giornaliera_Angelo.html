@@ -215,15 +215,9 @@ async function generaPDF() {
         form.flatten();
         const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: "application/pdf" });
-
-        // Uniformo il nome file: AAAAMMGG Nome.pdf
-        const dateParts = dati.data.split('/');
-        const formattedDate = dateParts[2] + dateParts[1] + dateParts[0];
-        const fileName = formattedDate + ' ' + dati.nome + '.pdf';
-
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = fileName;
+        link.download = dati.nome + ' ' + dati.data.replace(/\//g, '-') + '.pdf';
         link.click();
 
         await salvaSuGoogle(dati);

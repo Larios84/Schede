@@ -34,12 +34,12 @@ class RepartiActivity : AppCompatActivity() {
             gravity = Gravity.CENTER
         })
 
-        // Per ora aggiungiamo solo il reparto AVL
-        val reparti = listOf("AVL")
+        // Per ora aggiungiamo i reparti e la gestione KM
+        val opzioni = listOf("AVL", "RIMBORSO KM")
 
-        reparti.forEach { reparto ->
+        opzioni.forEach { opzione ->
             val btn = Button(this).apply {
-                text = reparto
+                text = opzione
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
@@ -49,9 +49,15 @@ class RepartiActivity : AppCompatActivity() {
                 setTextColor(Color.WHITE)
                 setBackgroundColor(accentColor)
                 setOnClickListener {
-                    if (reparto == "AVL") {
-                        val intent = Intent(this@RepartiActivity, SchedeAvlActivity::class.java)
-                        startActivity(intent)
+                    when (opzione) {
+                        "AVL" -> {
+                            val intent = Intent(this@RepartiActivity, SchedeAvlActivity::class.java)
+                            startActivity(intent)
+                        }
+                        "RIMBORSO KM" -> {
+                            val intent = Intent(this@RepartiActivity, KmActivity::class.java)
+                            startActivity(intent)
+                        }
                     }
                 }
             }

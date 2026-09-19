@@ -8,45 +8,35 @@
     android:background="@color/main_background"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <TextView
         android:id="@+id/birthday_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="#FF4081"
+        android:padding="8dp"
+        android:text="Auguri Luca!"
+        android:textColor="#FFFFFF"
         android:gravity="center"
-        android:padding="12dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:drawable/toast_frame"
-        android:backgroundTint="#1976D2"
         android:visibility="gone"
-        tools:visibility="visible"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🎂 AUGURI LUCA! 🥳"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="18sp" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/birthday_banner">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="64dp">
 
         <ImageButton
             android:id="@+id/btn_moduli_reparto"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_toStartOf="@id/btn_change_folder"
             android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/btn_change_folder"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Moduli Reparto"
             android:src="@android:drawable/ic_menu_agenda"
-            android:tint="@color/main_text"
-            android:contentDescription="Moduli Reparto" />
+            android:tint="@color/main_text" />
 
         <ImageButton
             android:id="@+id/btn_change_folder"
@@ -54,21 +44,21 @@
             android:layout_height="48dp"
             android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/cambia_cartella"
             android:src="@android:drawable/ic_menu_save"
-            android:tint="@color/main_text"
-            android:contentDescription="@string/cambia_cartella" />
+            android:tint="@color/main_text" />
 
         <ImageButton
             android:id="@+id/btn_open_generator"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_toStartOf="@id/btn_change_folder"
             android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/btn_change_folder"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Generatore Codici"
             android:src="@android:drawable/ic_lock_lock"
             android:tint="@color/main_text"
-            android:visibility="gone"
-            android:contentDescription="Generatore Codici" />
+            android:visibility="gone" />
     </RelativeLayout>
 
     <ScrollView
