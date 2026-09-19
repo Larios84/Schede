@@ -40,7 +40,6 @@
         <activity android:name=".RepartiActivity" />
         <activity android:name=".SchedeAvlActivity" />
         <activity android:name=".UrccActivity" />
-        <activity android:name=".KmActivity" />
 
     </application>
 

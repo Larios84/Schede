@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.schede"
-        minSdk = 26
+        minSdk = 24
         targetSdk = 34
         versionCode = 6
         versionName = "1.5"
@@ -27,15 +27,15 @@ android {
             resValue("string", "app_name", "Schede Ilario")
             resValue("string", "user_name", "Zanetti Ilario")
             resValue("string", "template_name", "template_ilario.pdf")
-            resValue("string", "template_km_name", "template_km_ilario.xlsx")
         }
         create("luca") {
             dimension = "user"
             applicationId = "com.example.schede.luca"
+            versionCode = 7
+            versionName = "1.6"
             resValue("string", "app_name", "Schede Luca")
             resValue("string", "user_name", "Garau Luca")
             resValue("string", "template_name", "template_luca.pdf")
-            resValue("string", "template_km_name", "template_km_ilario.xlsx")
         }
         create("angelo") {
             dimension = "user"
@@ -43,7 +43,6 @@ android {
             resValue("string", "app_name", "Schede Angelo")
             resValue("string", "user_name", "Angelo Boi")
             resValue("string", "template_name", "template_angelo.pdf")
-            resValue("string", "template_km_name", "template_km_ilario.xlsx")
         }
         create("beta") {
             dimension = "user"
@@ -52,7 +51,6 @@ android {
             resValue("string", "app_name", "Schede BETA")
             resValue("string", "user_name", "Utente Beta")
             resValue("string", "template_name", "template_ilario.pdf")
-            resValue("string", "template_km_name", "template_km_ilario.xlsx")
         }
     }
 
@@ -112,10 +110,6 @@ dependencies {
     
     // OkHttp for Google Sheets sync
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
-
-    // Excel handling (Apache POI)
-    implementation("org.apache.poi:poi:5.2.3")
-    implementation("org.apache.poi:poi-ooxml:5.2.3")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
