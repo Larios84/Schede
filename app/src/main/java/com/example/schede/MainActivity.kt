@@ -279,6 +279,10 @@ class MainActivity : AppCompatActivity() {
         }
         
         findViewById<ImageButton>(R.id.btn_change_folder)?.setOnClickListener { folderPickerLauncher.launch(null) }
+        findViewById<ImageButton>(R.id.btn_moduli_reparto)?.setOnClickListener {
+            val intent = Intent(this, RepartiActivity::class.java)
+            startActivity(intent)
+        }
         findViewById<Button>(R.id.exit_button).setOnClickListener { finishAffinity() }
         loadYesterdayButton.setOnClickListener { caricaComeIeri() }
 
@@ -436,15 +440,8 @@ class MainActivity : AppCompatActivity() {
         formData["tot"] = String.format(Locale.ITALY, "%.2f", oreTotali).replace(',', ':')
         formData["str"] = if (str > 0.0) String.format(Locale.ITALY, "%.2f", str).replace(',', ':') else ""
 
-        val dataParts = data.split("/")
-        val dataISO = if (dataParts.size == 3) {
-            val giorno = dataParts[0].padStart(2, '0')
-            val mese = dataParts[1].padStart(2, '0')
-            val anno = if (dataParts[2].length == 2) "20" + dataParts[2] else dataParts[2]
-            "$anno$mese$giorno"
-        } else data.replace("/", "")
-
-        val nomeFile = "$dataISO $nome.pdf"
+        val dataYMD = "${inputAaaa.text}${inputMm.text}${inputGg.text}"
+        val nomeFile = "$dataYMD $nome.pdf"
         val assetTemplate = when (nome) {
             "Zanetti Ilario" -> "templateiz.pdf"
             "Angelo Boi" -> "templateab.pdf"

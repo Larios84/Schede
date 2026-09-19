@@ -13,7 +13,7 @@ android {
         minSdk = 24
         targetSdk = 34
         versionCode = 6
-        versionName = "1.4.1"
+        versionName = "1.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,18 +26,29 @@ android {
             applicationId = "com.example.schede.ilario"
             resValue("string", "app_name", "Schede Ilario")
             resValue("string", "user_name", "Zanetti Ilario")
+            resValue("string", "template_name", "template_ilario.pdf")
         }
         create("luca") {
             dimension = "user"
             applicationId = "com.example.schede.luca"
             resValue("string", "app_name", "Schede Luca")
             resValue("string", "user_name", "Garau Luca")
+            resValue("string", "template_name", "template_luca.pdf")
         }
         create("angelo") {
             dimension = "user"
             applicationId = "com.example.schede.angelo"
-            resValue("string", "app_name", "S")
+            resValue("string", "app_name", "Schede Angelo")
             resValue("string", "user_name", "Angelo Boi")
+            resValue("string", "template_name", "template_angelo.pdf")
+        }
+        create("beta") {
+            dimension = "user"
+            applicationId = "com.example.schede.beta"
+            versionNameSuffix = "-beta"
+            resValue("string", "app_name", "Schede BETA")
+            resValue("string", "user_name", "Utente Beta")
+            resValue("string", "template_name", "template_ilario.pdf")
         }
     }
 

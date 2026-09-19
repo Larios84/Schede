@@ -37,6 +37,9 @@
         <activity android:name=".StoricoActivity" />
         <activity android:name=".DettaglioActivity" />
         <activity android:name=".AttivazioneActivity" />
+        <activity android:name=".RepartiActivity" />
+        <activity android:name=".SchedeAvlActivity" />
+        <activity android:name=".UrccActivity" />
 
     </application>
 
