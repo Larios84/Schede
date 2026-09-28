@@ -7,7 +7,7 @@ import java.io.File
 class FieldExtractorTest {
     @Test
     fun listFields() {
-        val pdfFile = File("/home/larios/Scrivania/DA MINT/Cartella senza nome/Schede 09-08-26  V1.6/MD-46 Scheda verifica giornaliera cabina AVL IZ.pdf")
+        val pdfFile = File("src/main/assets/RIMBORSO GL.pdf")
         if (!pdfFile.exists()) {
             println("File not found at ${pdfFile.absolutePath}")
             return
@@ -19,9 +19,9 @@ class FieldExtractorTest {
             if (acroForm == null) {
                 println("No AcroForm found in the PDF.")
             } else {
-                println("--- PDF FIELD LIST ---")
+                println("--- PDF FIELD LIST FOR RIMBORSO GL ---")
                 acroForm.fields.forEach { field ->
-                    println("Field: ${field.fullyQualifiedName} (Type: ${field.fieldType})")
+                    println("Field: '${field.fullyQualifiedName}' (Type: ${field.fieldType})")
                 }
                 println("--- END OF LIST ---")
             }

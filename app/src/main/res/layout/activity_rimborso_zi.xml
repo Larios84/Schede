@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- CARD MESE DI RIFERIMENTO -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@color/input_background"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="6dp"
+                    android:text="MESE DI RIFERIMENTO"
+                    android:textColor="@color/main_text"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:layout_marginEnd="4dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:backgroundTint="@color/main_background"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Mese"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_mese_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:backgroundTint="@color/main_background"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Anno"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_anno_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- CARD DATI VEICOLO E OPERATORE -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@color/input_background"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="DATI VEICOLO E OPERATORE"
+                        android:textColor="@color/main_text"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_salva_veicolo"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:minHeight="0dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:text="💾 SALVA VEICOLO"
+                        android:textColor="@color/main_text"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <!-- SELEZIONE VEICOLO SALVATO -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:baselineAligned="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:drawable/btn_dropdown"
+                        android:backgroundTint="@color/main_background"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Veicoli Salvati (Seleziona)"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <Spinner
+                            android:id="@+id/spinner_veicoli_salvati"
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp" />
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btn_elimina_veicolo"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:layout_marginStart="6dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Elimina Veicolo Salvato"
+                        android:src="@android:drawable/ic_menu_delete"
+                        android:visibility="gone"
+                        app:tint="#D32F2F" />
+                </LinearLayout>
+
+                <!-- RIGA 1: OPERATORE E TARGA -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Operatore"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/edit_nome_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:backgroundTint="@color/main_background"
+                            android:clickable="false"
+                            android:enabled="false"
+                            android:focusable="false"
+                            android:gravity="center_vertical"
+                            android:hint="Nome e Cognome"
+                            android:inputType="textCapWords"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/main_text"
+                            android:textColorHint="@color/label_color"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Targa"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/edit_targa_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:backgroundTint="@color/main_background"
+                            android:gravity="center"
+                            android:hint="Targa"
+                            android:inputType="textCapCharacters"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/main_text"
+                            android:textColorHint="@color/label_color"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- RIGA 2: AUTOVETTURA E COMBUSTIBILE -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:layout_marginEnd="4dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Autovettura (Modello / Anno)"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/edit_autovettura_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:backgroundTint="@color/main_background"
+                            android:gravity="center_vertical"
+                            android:hint="Modello / Anno immatricolazione"
+                            android:inputType="textCapSentences"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/main_text"
+                            android:textColorHint="@color/label_color"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Combustibile"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/edit_combustibile_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:backgroundTint="@color/main_background"
+                            android:gravity="center_vertical"
+                            android:hint="Benzina/Diesel"
+                            android:inputType="textCapSentences"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/main_text"
+                            android:textColorHint="@color/label_color"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- CARD INSERIMENTO NUOVA TRASFERTA -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@android:drawable/editbox_background"
+                android:backgroundTint="@color/input_background"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/tv_titolo_form_trasferta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="AGGIUNGI TRASFERTA"
+                    android:textColor="@color/main_text"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Riga 1: Giorno + OGGI e Km Percorsi (Allineamento perfetto) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <!-- Colonna Giorno -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:layout_marginEnd="6dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="2dp"
+                            android:text="Giorno"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/input_giorno_zi"
+                                android:layout_width="0dp"
+                                android:layout_height="42dp"
+                                android:layout_weight="1"
+                                android:layout_marginEnd="4dp"
+                                android:background="@android:drawable/editbox_background"
+                                android:backgroundTint="@color/main_background"
+                                android:gravity="center_vertical"
+                                android:hint="gg/mm/aaaa"
+                                android:inputType="date"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:textColor="@color/main_text"
+                                android:textColorHint="@color/label_color"
+                                android:textSize="13sp" />
+
+                            <Button
+                                android:id="@+id/btn_oggi_trasferta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="42dp"
+                                android:includeFontPadding="false"
+                                android:minWidth="0dp"
+                                android:minHeight="0dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:text="OGGI"
+                                android:textColor="@color/main_text"
+                                android:textSize="11sp"
+                                app:backgroundTint="@color/main_background" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Colonna Km -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="2dp"
+                            android:text="Km Percorsi"
+                            android:textColor="@color/label_color"
+                            android:textSize="11sp" />
+
+                        <EditText
+                            android:id="@+id/input_km_zi"
+                            android:layout_width="match_parent"
+                            android:layout_height="42dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:backgroundTint="@color/main_background"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/main_text"
+                            android:textColorHint="@color/label_color"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Riga 2: Percorso -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:text="Percorso"
+                        android:textColor="@color/label_color"
+                        android:textSize="11sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/input_percorso_zi"
+                            android:layout_width="0dp"
+                            android:layout_height="42dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:background="@android:drawable/editbox_background"
+                            android:backgroundTint="@color/main_background"
+                            android:gravity="center_vertical"
+                            android:hint="es. Residenza - Aeroporto - Residenza"
+                            android:inputType="textCapWords"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/main_text"
+                            android:textColorHint="@color/label_color"
+                            android:textSize="13sp" />
+
+                        <Button
+                            android:id="@+id/btn_percorso_predefinito"
+                            android:layout_width="wrap_content"
+                            android:layout_height="42dp"
+                            android:includeFontPadding="false"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:text="📍 Predefinito"
+                            android:textColor="@color/main_text"
+                            android:textSize="11sp"
+                            app:backgroundTint="@color/main_background" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Riga 3: Motivazione -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="2dp"
+                        android:text="Motivazione"
+                        android:textColor="@color/label_color"
+                        android:textSize="11sp" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/input_motivazione_zi"
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:backgroundTint="@color/main_background"
+                        android:gravity="center_vertical"
+                        android:hint="Motivazione del servizio"
+                        android:inputType="textCapSentences"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:textColor="@color/main_text"
+                        android:textColorHint="@color/label_color"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Bottoni Aggiungi / Modifica -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_annulla_modifica_trasferta"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:text="ANNULLA"
+                        android:textColor="@color/main_text"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_aggiungi_trasferta"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="2"
+                        android:text="➕ AGGIUNGI TRASFERTA"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="#2E7D32" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- RIEPILOGO TRASFERTE INSERITE -->
+            <TextView
+                android:id="@+id/tv_titolo_riepilogo_trasferte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="RIEPILOGO TRASFERTE (0 / 13)"
+                android:textColor="@color/main_text"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/container_trasferte_inserite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BARRA INFERIORE CON TOTALE E BOTTONI -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/input_background"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/text_totale_km_zi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:text="Totale km: 0"
+            android:textColor="@color/main_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_clear_rimborso_zi"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="SVUOTA SCHEDA"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="#D32F2F" />
+
+            <Button
+                android:id="@+id/btn_generate_rimborso_zi"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1.6"
+                android:layout_marginStart="6dp"
+                android:text="GENERA PDF"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="#FF9800" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

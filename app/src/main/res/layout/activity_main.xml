@@ -45,8 +45,22 @@
             android:layout_marginEnd="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_agenda"
-            android:tint="@color/main_text"
+            app:tint="@color/main_text"
             android:contentDescription="Moduli Reparto" />
+
+        <Button
+            android:id="@+id/btn_rimborso_zi"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@id/btn_moduli_reparto"
+            android:layout_marginEnd="8dp"
+            android:text="KM"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:contentDescription="Rimborso ZI" />
 
         <ImageButton
             android:id="@+id/btn_change_folder"
@@ -55,18 +69,18 @@
             android:layout_alignParentEnd="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_save"
-            android:tint="@color/main_text"
+            app:tint="@color/main_text"
             android:contentDescription="@string/cambia_cartella" />
 
         <ImageButton
             android:id="@+id/btn_open_generator"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_toStartOf="@id/btn_change_folder"
+            android:layout_toStartOf="@id/btn_rimborso_zi"
             android:layout_marginEnd="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_lock_lock"
-            android:tint="@color/main_text"
+            app:tint="@color/main_text"
             android:visibility="gone"
             android:contentDescription="Generatore Codici" />
     </RelativeLayout>

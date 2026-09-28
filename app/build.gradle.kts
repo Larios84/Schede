@@ -12,8 +12,8 @@ android {
         applicationId = "com.example.schede"
         minSdk = 24
         targetSdk = 34
-        versionCode = 6
-        versionName = "1.5"
+        versionCode = 8
+        versionName = "1.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,17 +29,19 @@ android {
             resValue("string", "template_name", "template_ilario.pdf")
             resValue("string", "md46_template_name", "template_md46_iz.pdf")
             resValue("string", "md121_template_name", "MD-121 Scheda verifica periodica PAPI pista principale IZ.pdf")
+            resValue("string", "rimborso_zi_template_name", "RIMBORSO_ZI.pdf")
         }
         create("luca") {
             dimension = "user"
             applicationId = "com.example.schede.luca"
-            versionCode = 7
-            versionName = "1.6"
+            versionCode = 8
+            versionName = "1.8"
             resValue("string", "app_name", "Schede Luca")
             resValue("string", "user_name", "Garau Luca")
             resValue("string", "template_name", "template_luca.pdf")
             resValue("string", "md46_template_name", "template_md46_iz.pdf")
             resValue("string", "md121_template_name", "MD-121 Scheda verifica periodica PAPI pista principale LG.pdf")
+            resValue("string", "rimborso_zi_template_name", "RIMBORSO GL.pdf")
         }
         create("angelo") {
             dimension = "user"
@@ -48,15 +50,19 @@ android {
             resValue("string", "user_name", "Angelo Boi")
             resValue("string", "template_name", "template_angelo.pdf")
             resValue("string", "md46_template_name", "template_md46_iz.pdf")
+            resValue("string", "rimborso_zi_template_name", "RIMBORSO_ZI.pdf")
         }
         create("beta") {
             dimension = "user"
             applicationId = "com.example.schede.beta"
             versionNameSuffix = "-beta"
+            versionCode = 8
+            versionName = "1.8"
             resValue("string", "app_name", "Schede BETA")
             resValue("string", "user_name", "Zanetti Ilario")
             resValue("string", "template_name", "template_ilario.pdf")
             resValue("string", "md46_template_name", "template_md46_iz.pdf")
+            resValue("string", "rimborso_zi_template_name", "RIMBORSO_ZI.pdf")
         }
     }
 

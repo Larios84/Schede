@@ -136,6 +136,10 @@ class MainActivity : AppCompatActivity() {
         val btnOpenGenerator = findViewById<ImageButton>(R.id.btn_open_generator)
         btnOpenGenerator.visibility = View.GONE
 
+        findViewById<Button>(R.id.btn_rimborso_zi).setOnClickListener {
+            startActivity(Intent(this, RimborsoZiActivity::class.java))
+        }
+
         val btnStraordinarioVeloce = findViewById<Button>(R.id.btn_straordinario_veloce)
         if (currentUserName != "Angelo Boi") {
             btnStraordinarioVeloce.visibility = View.VISIBLE
